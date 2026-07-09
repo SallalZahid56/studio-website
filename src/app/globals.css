@@ -1,26 +1,27 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Base Colors */
+  --color-background: #0a0a0a; /* Replace with Figma background */
+  --color-foreground: #ededed; /* Replace with Figma text */
+  
+  /* Studio Palette */
+  --color-brand: #007ACC;
+  --color-brand-light: #3399FF;
+  --color-brand-dark: #005C99;
+  --color-surface: #171717;
+  --color-surface-hover: #262626;
+  --color-muted: #a3a3a3;
+
+  /* Typography mapped from your layout.tsx font setup */
+  --font-sans: var(--font-primary), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Custom Figma radii */
+  --radius-studio: 0.5rem; 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Core layout resets */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
