@@ -6,9 +6,9 @@
   --color-foreground: #ededed; /* Replace with Figma text */
   
   /* Studio Palette */
-  --color-brand: #007ACC;
-  --color-brand-light: #3399FF;
-  --color-brand-dark: #005C99;
+  --color-brand: #fe0000;
+  --color-brand-light: #ff3b3b;
+  --color-brand-dark: #c70000;
   --color-surface: #171717;
   --color-surface-hover: #262626;
   --color-muted: #a3a3a3;
