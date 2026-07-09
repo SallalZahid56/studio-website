@@ -1,10 +1,30 @@
+"use client";
+
 import { Zap, Star, Sparkles, ArrowRight } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 export default function Hero() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" as const },
+    },
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-background text-foreground pt-20">
+    <section id="home" className="relative overflow-hidden bg-background text-foreground pt-12 pb-32 min-h-[85vh]">
       
-      {/* 1. Background Grid Pattern */}
+      {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div 
           className="absolute inset-0" 
@@ -15,24 +35,27 @@ export default function Hero() {
         />
       </div>
 
-      {/* 2. Floating Animated Icons */}
-      <div className="absolute top-32 left-20 text-brand animate-bounce hidden md:block">
+      {/* Floating Animated Icons */}
+      <div className="absolute top-20 left-20 text-brand animate-bounce hidden md:block">
         <Zap className="w-8 h-8" />
       </div>
-      <div className="absolute top-52 right-32 text-brand animate-pulse hidden md:block">
+      <div className="absolute top-40 right-32 text-brand animate-pulse hidden md:block">
         <Star className="w-6 h-6" />
       </div>
       <div className="absolute bottom-40 left-32 text-brand animate-bounce hidden md:block" style={{ animationDelay: '1000ms' }}>
         <Sparkles className="w-7 h-7" />
       </div>
 
-      {/* 3. Main Content Container */}
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="container mx-auto px-6 relative z-10"
+      >
         <div className="max-w-6xl mx-auto">
           
-          {/* Headline */}
           <div className="text-center space-y-8 mb-16">
-            <div className="space-y-4">
+            <motion.div variants={itemVariants} className="space-y-4">
               <div className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
                 <div className="mb-4">WE ARE A</div>
                 <div className="relative inline-block">
@@ -43,17 +66,15 @@ export default function Hero() {
                 <div className="mt-4">DIGITAL</div>
                 <div className="text-muted">AGENCY</div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Subheadline */}
-            <div className="flex justify-center">
+            <motion.div variants={itemVariants} className="flex justify-center">
               <div className="max-w-2xl text-xl md:text-2xl text-muted font-medium leading-relaxed">
                 We create <span className="text-brand font-bold">impossible</span> digital experiences that make brands <span className="text-white font-bold underline decoration-brand">unforgettable</span>
               </div>
-            </div>
+            </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
               <button className="inline-flex items-center justify-center bg-brand hover:bg-brand-light text-white px-8 py-4 text-lg font-bold rounded-full transition-all group">
                 LET&apos;S START SOMETHING BIG
                 <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
@@ -61,11 +82,10 @@ export default function Hero() {
               <button className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-bold rounded-full transition-all">
                 SEE OUR WORK
               </button>
-            </div>
+            </motion.div>
           </div>
 
-          {/* 4. Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-20">
             <div className="space-y-2">
               <div className="text-4xl md:text-5xl font-black text-brand">200+</div>
               <div className="text-muted font-medium uppercase tracking-wider text-sm">PROJECTS LAUNCHED</div>
@@ -82,19 +102,17 @@ export default function Hero() {
               <div className="text-4xl md:text-5xl font-black text-brand">∞</div>
               <div className="text-muted font-medium uppercase tracking-wider text-sm">CREATIVE POSSIBILITIES</div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Bottom Tagline */}
-          <div className="text-center mt-20">
+          <motion.div variants={itemVariants} className="text-center mt-20">
             <div className="text-2xl md:text-4xl font-bold text-muted mb-4">
               THINKING <span className="text-brand">DIFFERENT</span> IS OUR SUPERPOWER
             </div>
             <div className="w-32 h-1 bg-brand mx-auto rounded-full"></div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* 5. Bottom Gradient Line */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-brand to-transparent"></div>
     </section>
   );
