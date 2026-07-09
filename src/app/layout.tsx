@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 const primaryFont = Inter({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         
         {/* We place the Navbar here so it renders on every single page automatically */}
         <Navbar /> 
+        <Hero />
         
         {/* The main tag holds the actual page content (like your Hero section) */}
         <main className="grow">
