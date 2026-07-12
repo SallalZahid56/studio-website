@@ -1,41 +1,63 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    // <header> acts as our sticky container. The 'z-50' keeps it on top of all other content.
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
-      
-      {/* max-w-7xl keeps the content centered and stops it from stretching too wide on massive monitors */}
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        {/* 1. Logo Section */}
-        <Link href="/" className="text-2xl font-black tracking-tight text-white">
-          PIXEL<span className="text-[#fe0000]">CRAFT</span>
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-black tracking-tight text-white z-50">
+          PIXEL<span className="text-brand">CRAFT</span>
         </Link>
 
-        {/* 2. Desktop Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#home" className="hover:text-[#fe0000] transition-colors font-bold uppercase tracking-wide text-white">Home</Link>
-          <Link href="#services" className="hover:text-[#fe0000] transition-colors font-bold uppercase tracking-wide text-white">Services</Link>
-          <Link href="#portfolio" className="hover:text-[#fe0000] transition-colors font-bold uppercase tracking-wide text-white">Portfolio</Link>
-          <Link href="#about" className="hover:text-[#fe0000] transition-colors font-bold uppercase tracking-wide text-white">About</Link>
-          <Link href="#contact" className="hover:text-[#fe0000] transition-colors font-bold uppercase tracking-wide text-white">Contact</Link>
+          {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
+            <Link key={item} href={`#${item.toLowerCase()}`} className="hover:text-brand transition-colors font-bold uppercase tracking-wide text-white">
+              {item}
+            </Link>
+          ))}
         </nav>
 
-        {/* 3. CTA Button (Desktop Only) */}
+        {/* Desktop CTA */}
         <div className="hidden md:block">
-          <button className="inline-flex items-center justify-center bg-[#fe0000] hover:bg-[#d80000] text-white font-bold px-6 py-2 rounded-full transition-all text-sm tracking-wide">
+          <button className="bg-brand hover:bg-brand-dark text-white font-bold px-6 py-2 rounded-full transition-all text-sm tracking-wide">
             LET&apos;S TALK
           </button>
         </div>
 
-        {/* 4. Mobile Menu Icon */}
-        <button className="md:hidden text-white">
-          <Menu size={24} />
+        {/* Mobile/Tablet Hamburger Icon */}
+        <button className="md:hidden text-white z-50" onClick={toggleMenu}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-        
       </div>
+
+      {/* Mobile/Tablet Fullscreen Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black flex flex-col items-center justify-center space-y-8 md:hidden">
+          {["Home", "Services", "Portfolio", "About", "Contact"].map((item) => (
+            <Link 
+              key={item} 
+              href={`#${item.toLowerCase()}`} 
+              onClick={() => setIsOpen(false)}
+              className="text-3xl font-black uppercase text-white hover:text-brand transition-colors"
+            >
+              {item}
+            </Link>
+          ))}
+          <button className="bg-brand text-white font-bold px-10 py-4 rounded-full text-lg mt-8">
+            LET&apos;S TALK
+          </button>
+        </div>
+      )}
     </header>
   );
 }
