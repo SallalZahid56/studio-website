@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
 
 const primaryFont = Inter({
   subsets: ["latin"],
@@ -22,22 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // The className here applies your font variable and enables smooth scrolling for the # hash links
     <html lang="en" className={`${primaryFont.variable} antialiased scroll-smooth`}>
-      
-      {/* pt-20 adds 80px of padding to the top so your page content doesn't get stuck behind the fixed Navbar */}
-      <body className="pt-20 min-h-screen flex flex-col bg-background text-foreground">
-        
-        {/* We place the Navbar here so it renders on every single page automatically */}
-        <Navbar /> 
+      <body className="flex min-h-screen flex-col bg-background pt-20 text-foreground">
+        <Navbar />
         <Hero />
         <Services />
-        
-        {/* The main tag holds the actual page content (like your Hero section) */}
-        <main className="grow">
-          {children}
-        </main>
-        
+        <Portfolio />
+        <main className="grow">{children}</main>
       </body>
     </html>
   );
