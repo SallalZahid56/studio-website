@@ -11,11 +11,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-white text-black">
-      <div className="container mx-auto px-6">
+    <section id="services" className="py-20 bg-white text-black overflow-x-hidden w-full max-w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="text-6xl md:text-8xl font-black leading-none tracking-tight mb-8">
+          <div className="text-4xl sm:text-6xl md:text-8xl font-black leading-none tracking-tight mb-8 wrap-break-words">
             <div>OUR</div>
             <div className="text-brand">SUPERPOWERS</div>
           </div>

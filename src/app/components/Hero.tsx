@@ -22,98 +22,105 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative overflow-hidden bg-background text-foreground pt-12 pb-32 min-h-[85vh]">
-      
+    <section
+      id="home"
+      className="relative overflow-x-hidden bg-background pt-12 pb-32 text-foreground min-h-[85vh] w-full max-w-full"
+    >
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div 
-          className="absolute inset-0" 
+        <div
+          className="absolute inset-0"
           style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0px)',
-            backgroundSize: '40px 40px'
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0px)",
+            backgroundSize: "40px 40px",
           }}
         />
       </div>
 
       {/* Floating Animated Icons */}
-      <div className="absolute top-20 left-20 text-brand animate-bounce hidden md:block">
-        <Zap className="w-8 h-8" />
+      <div className="absolute top-20 left-20 hidden text-brand animate-bounce md:block">
+        <Zap className="h-8 w-8" />
       </div>
-      <div className="absolute top-40 right-32 text-brand animate-pulse hidden md:block">
-        <Star className="w-6 h-6" />
+      <div className="absolute top-40 right-32 hidden text-brand animate-pulse md:block">
+        <Star className="h-6 w-6" />
       </div>
-      <div className="absolute bottom-40 left-32 text-brand animate-bounce hidden md:block" style={{ animationDelay: '1000ms' }}>
-        <Sparkles className="w-7 h-7" />
+      <div
+        className="absolute bottom-40 left-32 hidden text-brand animate-bounce md:block"
+        style={{ animationDelay: "1000ms" }}
+      >
+        <Sparkles className="h-7 w-7" />
       </div>
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="container mx-auto px-6 relative z-10"
+        className="relative z-10 w-full px-2 sm:px-6"
       >
-        <div className="max-w-6xl mx-auto">
-          
-          <div className="text-center space-y-8 mb-16">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
+          <div className="mb-16 space-y-8 text-center">
             <motion.div variants={itemVariants} className="space-y-4">
-              <div className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
-                <div className="mb-4">WE ARE A</div>
-                <div className="relative inline-block">
-                  <span className="text-brand bg-white px-8 py-4 rounded-2xl transform -rotate-2 inline-block">
+              <div className="text-[3.5rem] leading-[0.9] font-black tracking-tight wrap-break-words sm:text-8xl">
+                <div className="mb-2">WE ARE A</div>
+                <div className="relative my-4 inline-block">
+                  <span className="inline-block -rotate-2 rounded-xl bg-white px-6 py-2 text-brand">
                     SUPER
                   </span>
                 </div>
-                <div className="mt-4">DIGITAL</div>
+                <div className="mt-2">DIGITAL</div>
                 <div className="text-muted">AGENCY</div>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex justify-center">
-              <div className="max-w-2xl text-xl md:text-2xl text-muted font-medium leading-relaxed">
-                We create <span className="text-brand font-bold">impossible</span> digital experiences that make brands <span className="text-white font-bold underline decoration-brand">unforgettable</span>
+            <motion.div variants={itemVariants} className="flex justify-center px-2">
+              <div className="max-w-[90vw] text-lg font-medium text-muted">
+                We create <span className="font-bold text-brand">impossible</span> digital experiences
               </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-              <button className="inline-flex items-center justify-center bg-brand hover:bg-brand-light text-white px-8 py-4 text-lg font-bold rounded-full transition-all group">
-                LET&apos;S START SOMETHING BIG
-                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
-              </button>
-              <button className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-bold rounded-full transition-all">
-                SEE OUR WORK
-              </button>
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-20">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center justify-center gap-6 pt-8 sm:flex-row"
+          >
+            <button className="group inline-flex items-center justify-center rounded-full bg-brand px-8 py-4 text-lg font-bold text-white transition-all hover:bg-brand-light">
+              LET&apos;S START SOMETHING BIG
+              <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />
+            </button>
+            <button className="inline-flex items-center justify-center rounded-full border-2 border-white px-8 py-4 text-lg font-bold text-white transition-all hover:bg-white hover:text-black">
+              SEE OUR WORK
+            </button>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="mt-20 grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-black text-brand">200+</div>
-              <div className="text-muted font-medium uppercase tracking-wider text-sm">PROJECTS LAUNCHED</div>
+              <div className="text-4xl font-black text-brand md:text-5xl">200+</div>
+              <div className="text-sm font-medium uppercase tracking-wider text-muted">PROJECTS LAUNCHED</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-black text-brand">99%</div>
-              <div className="text-muted font-medium uppercase tracking-wider text-sm">CLIENT SATISFACTION</div>
+              <div className="text-4xl font-black text-brand md:text-5xl">99%</div>
+              <div className="text-sm font-medium uppercase tracking-wider text-muted">CLIENT SATISFACTION</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-black text-brand">24H</div>
-              <div className="text-muted font-medium uppercase tracking-wider text-sm">RESPONSE TIME</div>
+              <div className="text-4xl font-black text-brand md:text-5xl">24H</div>
+              <div className="text-sm font-medium uppercase tracking-wider text-muted">RESPONSE TIME</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl md:text-5xl font-black text-brand">∞</div>
-              <div className="text-muted font-medium uppercase tracking-wider text-sm">CREATIVE POSSIBILITIES</div>
+              <div className="text-4xl font-black text-brand md:text-5xl">∞</div>
+              <div className="text-sm font-medium uppercase tracking-wider text-muted">CREATIVE POSSIBILITIES</div>
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="text-center mt-20">
-            <div className="text-2xl md:text-4xl font-bold text-muted mb-4">
+          <motion.div variants={itemVariants} className="mt-20 text-center">
+            <div className="mb-4 text-2xl font-bold text-muted md:text-4xl">
               THINKING <span className="text-brand">DIFFERENT</span> IS OUR SUPERPOWER
             </div>
-            <div className="w-32 h-1 bg-brand mx-auto rounded-full"></div>
+            <div className="mx-auto h-1 w-32 rounded-full bg-brand" />
           </motion.div>
         </div>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-brand to-transparent"></div>
+      <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-brand to-transparent" />
     </section>
   );
 }
