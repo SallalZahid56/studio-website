@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import About from "./components/About";
+import Contact from "./components/Contact";
 
 const primaryFont = Inter({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Services />
         <Portfolio />
         <About />
+        <Contact />
         <main className="grow">{children}</main>
       </body>
     </html>
