@@ -7,6 +7,7 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const primaryFont = Inter({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Portfolio />
         <About />
         <Contact />
+        <Footer />
         <main className="grow">{children}</main>
       </body>
     </html>
