@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+PIXELCRAFT STUDIO
+The digital agency that refuses to blend in.
 
-## Getting Started
+Welcome to the official repository for the PixelCraft Studio landing page—a bold, high-converting, and hyper-responsive showcase website designed for creative agencies who want to dominate their market. Built using a modern, pixel-perfect stack of Next.js, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+🔥 Key Features
+⚡ Modern Next.js Architecture: Built using the Next.js App Router for optimal performance, routing, and fast initial page loads.
 
-```bash
+🎨 Bold & Rebellious UI: High-contrast dark theme elements balanced with clean minimalist spaces to capture absolute attention.
+
+📦 Fully Typed React Components: Form flows, layout modules, and transitions built using clean, robust TypeScript.
+
+✉️ Interactive Contact Engine: Built-in investment tier selector, state-controlled inputs, and dynamic submission feedback alerts.
+
+⚡ Bulletproof SVG Architecture: Optimized icon fallbacks inside the footer to prevent TypeScript build failures and package drift.
+
+📱 Edge-to-Edge Responsiveness: Extensively tested grid layouts that degrade beautifully from high-resolution desktop screens down to mobile viewports.
+
+🛠️ Tech Stack
+Framework: Next.js 14+ (App Router)
+
+Library: React 18+
+
+Styling: Tailwind CSS
+
+Icons: Lucide React (with optimized inline brand SVGs)
+
+Language: TypeScript
+
+📁 Project Directory Structure
+Here is how the core layout modules are organized within the directory:
+
+Bash
+studio-website/
+├── public/                 # Static assets (images, logos, icons)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx      # App global layout & metadata
+│   │   ├── page.tsx        # Aggregated home page view
+│   │   └── globals.css     # Tailwind imports and root variables
+│   └── components/
+│       ├── Hero.tsx        # Impact introduction area
+│       ├── Portfolio.tsx   # Interactive work showcase
+│       ├── About.tsx       # Team values, narrative, & stats
+│       ├── Contact.tsx     # State-managed conversion form
+│       └── Footer.tsx      # Social directory & quick links
+├── tailwind.config.ts      # Configured with the custom brand color token
+├── package.json
+└── tsconfig.json
+🚀 Getting Started
+Follow these steps to spin up PixelCraft Studio on your local development environment:
+
+1. Clone the Repository
+Bash
+git clone https://github.com/your-username/studio-website.git
+cd studio-website
+2. Install Dependencies
+Make sure you are on Node.js 18+ and install the project dependencies:
+
+Bash
+npm install
+3. Run the Development Server
+Kick off the local server on http://localhost:3000:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+4. Build for Production
+To generate a highly optimized, static, and production-ready build, run:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Bash
+npm run build
+npm run start
+🎨 Customizing the Accent Color
+This project uses a unified color configuration mapping called brand. To change the primary agency accent color system-wide:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open your tailwind.config.ts (or tailwind.config.js) file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Update the colors.brand value to match your own brand hex key:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+TypeScript
+// tailwind.config.ts
+const config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: '#FF3E3E', // Change your dominant accent hex here
+          light: '#FF5E5E',   // Change your hover accent hex here
+        }
+      }
+    }
+  }
+}
+export default config;
